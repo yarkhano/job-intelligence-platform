@@ -1,0 +1,2 @@
+CREATE TABLE companies(company_id SERIAL PRIMARY KEY,name VARCHAR(100) NOT NULL UNIQUE,industry VARCHAR(100),country CHAR(4) NOT NULL,website TEXT,size_category VARCHAR(20) CHECK(size_category IN ('startup', 'sme', 'enterprise'),created_at TIMESTAMPTZ DEFAULT NOW());
+CREATE TABLE sources(source_id SERIAL PRIMARY KEY,name VARCHAR(50) NOT NULL UNIQUE,base_url TEXT NOT NULL,is_active BOOLEAN  DEFAULT TRUE);

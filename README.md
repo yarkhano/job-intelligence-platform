@@ -95,7 +95,7 @@ job_intelligence_platform/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/job-intelligence-platform.git
+git clone https://github.com/yarkhano/job-intelligence-platform.git
 cd job-intelligence-platform
 
 # Install dependencies

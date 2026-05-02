@@ -3,3 +3,8 @@
 #code in this file runs and returns job data as JSON.
 
 from fastapi import APIRouter
+from fastapi import Depends
+from typing import List,Optional
+from sqlalchemy.orm import session
+from sqlalchemy import Text
+from database import get_db

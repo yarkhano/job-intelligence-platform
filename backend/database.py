@@ -6,7 +6,7 @@ from sqlalchemy.orm import declarative_base
 
 load_dotenv()
 
-DB_HOST = os.getenev("DB_HOST")
+DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
@@ -20,5 +20,14 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False,bind=engine)
 
 Base = declarative_base() #EVery model createe in model.py will inherit from from this Base
 
-def gwt_db():
+#This function will be used by all your route functions to get a database session
+def get_db():
     db = SessionLocal()
+    try:
+        yield db     #this gives the database session to whoever calls this function
+    except Exception as e:
+        db.rollback()
+        print(f"error is :{e}")
+    finally:
+        db.close()
+

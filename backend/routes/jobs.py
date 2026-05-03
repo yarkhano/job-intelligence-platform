@@ -98,3 +98,5 @@ def get_job(job_id: int, db: Session = Depends(get_db)):
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail="Internal server error")
+
+

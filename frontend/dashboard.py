@@ -44,6 +44,7 @@ st.sidebar.subheader("Your Profile")
 user_id = st.sidebar.number_input(label="Enter your User ID", min_value=1, value=1, step=1)
 st.sidebar.caption("Change User id to see different profiles")
 
+#Job Browser Page
 if page == "Job Browser":
     st.title("Job Browser")
     st.markdown("Browse all active job postings collected by the scraper.")
@@ -98,4 +99,18 @@ if page == "Job Browser":
     st.markdown(f"Showing {len(df)} jobs")
 
     # Display table
-    st.dataframe(df, use_container_width=True))
+    st.dataframe(df, use_container_width=True)
+
+
+#Skill Matcher Page
+elif page == "Skill Matcher":
+    st.title("Skill Matcher")
+    st.markdown("Jobs are ranked Using JOINS (skill overlape)")
+    user_data = fetch_api(f"/user/{user_id}")
+    if user_data is not None and user_data["full_name"] not in user_data:
+        st.success(f" Logged in as: {user_data['full_name']} — {user_data['years_experience']} years experience")
+
+    else:
+        st.warning("No user found")
+
+

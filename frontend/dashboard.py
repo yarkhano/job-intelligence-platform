@@ -26,3 +26,13 @@ def fetch_api(endpoint: str, params: dict = None):
 
     except Exception as e:
         st.error(str(e))
+
+
+#Create the left sidebar where users click to switch between pages.
+st.sidebar.title("JIP Dashboard")
+st.sidebar.markdown("Job Intelligence Platform")
+st.sidebar.divider()
+
+
+#Navigation Menu
+page = st.sidebar.radio(label="Navigate to",options=["Job Browser", "Skill Matcher", "My Applications", "Analytics"])

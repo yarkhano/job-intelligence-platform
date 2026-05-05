@@ -93,3 +93,9 @@ if page == "Job Browser":
             df["title"].str.contains(search_text, case=False, na=False) |
             df["company_name"].str.contains(search_text, case=False, na=False)
             ]
+
+    # Show number of jobs
+    st.markdown(f"Showing {len(df)} jobs")
+
+    # Display table
+    st.dataframe(df, use_container_width=True))
